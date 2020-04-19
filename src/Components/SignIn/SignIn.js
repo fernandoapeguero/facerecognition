@@ -18,15 +18,31 @@ onEmailChange = (event) => {
 
 onPasswordChange = (event) => {
 
-    this.setState({password: event.target.value});
+    this.setState({signInPassword: event.target.value});
 
 }
 
 
   onSubmitSignIn = () => {
+    const {signInEmail , signInPassword} = this.state;
 
-    console.log(this.state);
-    this.props.onRouteChange('home');
+    
+    fetch('http://localhost:3000/signin' , {
+      method: "POST",
+      mode: 'cors',
+      headers: {'Content-Type' : 'application/json'},
+      body: JSON.stringify({
+        email: signInEmail , 
+        password: signInPassword
+      })
+
+    }).then(response => response.json())
+      .then(console.log);
+
+    
+      this.props.onRouteChange('home');
+  
+   
   }
 
 render(){
