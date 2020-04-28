@@ -28,9 +28,10 @@ onPasswordChange = (event) => {
 
     const {signInEmail , signInPassword} = this.state;
 
+
     
     fetch('http://localhost:3000/signin' , {
-      method: "POST",
+      method: "post",
       mode: 'cors',
       headers: {'Content-Type' : 'application/json'},
       body: JSON.stringify({
@@ -39,10 +40,17 @@ onPasswordChange = (event) => {
       })
 
     }).then(response => response.json())
-      .then(console.log);
+      .then(data => {
+        if(data){
+          this.props.onloadUser(data);
+          this.props.onRouteChange('home');
+        } else {
+          console.log(data);
+        }
+      });
 
     
-      this.props.onRouteChange('home');
+
 
   }
 
@@ -67,7 +75,7 @@ render(){
           </fieldset>
           <div className="">
             <input  className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib" 
-                    type="submit" 
+                    type="button" 
                     value="Sign in"
                     onClick={this.onSubmitSignIn}
                     />
