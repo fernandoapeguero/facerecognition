@@ -40,12 +40,12 @@ onPasswordChange = (event) => {
       })
 
     }).then(response => response.json())
-      .then(data => {
-        if(data){
-          this.props.onloadUser(data);
+      .then(user => {
+        if(user.id){
+          this.props.onloadUser(user);
           this.props.onRouteChange('home');
         } else {
-          console.log(data);
+          console.log(user);
         }
       });
 
