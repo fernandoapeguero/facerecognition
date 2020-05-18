@@ -40,8 +40,8 @@ class Register extends Component{
         headers: {"Content-Type": "application/json"},
         body: JSON.stringify({name:name , email:email , password:password })
       }).then(res => res.json())
-        .then(data => {
-            if(typeof data === 'object'){
+        .then(user => {
+            if(user.id){
               this.props.onRouteChange('signin');
             }
 

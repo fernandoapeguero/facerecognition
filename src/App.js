@@ -7,15 +7,9 @@ import ImageLinkForm from './Components/ImageLinkForm/ImageLinkForm';
 import FaceRecognition from './Components/FaceRecognition/FaceRecognition';
 import Rank from './Components/Rank/Rank';
 import Particles from 'react-particles-js';
-import Clarifai from 'clarifai' ;
+
 import Register from './Components/Register/Register'; 
 import SignIn from './Components/SignIn/SignIn';
-
-
-
-const app = new Clarifai.App({
-  apiKey: 'ad4959b234064287b32da7697125d9b7'
-});
 
 const particlesOptions = {
     particles: {
@@ -92,8 +86,14 @@ class App extends Component{
   onButtonSubmit = () => {
 
     this.setState({imageUrl: this.state.input});
-    
-    app.models.predict(Clarifai.FACE_DETECT_MODEL, this.state.input).then(response =>  {
+    fetch("http://localhost:3000/imageUrl" , {
+      method: "post",
+      mode: "cors",
+      headers: {"Content-Type":"application/json"} ,
+      body: JSON.stringify({
+        input: this.state.input})
+    }).then(response => response.json())
+    .then(response =>  {
       if(response){
 
         fetch('http://localhost:3000/image' , {
@@ -111,8 +111,7 @@ class App extends Component{
       .catch(console.log);
     this.displayfaceBox(this.calculateFaceLocation(response));
     }
-} 
-          ).catch(error => {console.log("the image have no  faces " + error);}) 
+  }).catch(error => {console.log("the image have no  faces " + error);});
 }
 
   onRouteChange = (route) => {
