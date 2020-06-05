@@ -31,10 +31,10 @@ class Register extends Component{
     this.setState({password: event.target.value})
   }
 
-  onRegisterSubmit = () => {
+  onRegisterSubmit = (event) => {
+      event.preventDefault();
       const {name , email , password} = this.state;
-
-      fetch('http://localhost:3000/register' , {
+      fetch('https://salty-taiga-04637.herokuapp.com/register' , {
         method: 'post',
         mode: 'cors',
         headers: {"Content-Type": "application/json"},
@@ -47,8 +47,6 @@ class Register extends Component{
 
         })
 
-
-
   }
 
 
@@ -58,7 +56,7 @@ class Register extends Component{
     return(
         <article className="br3 ba dark-gray b--black-10 mv4 w-100 w-50-m w-25-l mw6 shadow-5 center">
         <main className="pa4 black-80">
-        <form className="measure">
+        <form className="measure" onSubmit={this.onRegisterSubmit}>
             <fieldset id="sign_up" className="ba b--transparent ph0 mh0">
             <legend className="f1 fw6 ph0 mh0">Register </legend>
             <div className="mt3">
@@ -77,9 +75,9 @@ class Register extends Component{
           </fieldset>
           <div className="">
             <input  className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib" 
-                    type="button" 
+                    type="submit" 
                     value="Register"
-                    onClick={this.onRegisterSubmit}
+                    
                     />
           </div>
         </form>
