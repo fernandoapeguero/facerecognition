@@ -14,6 +14,10 @@ Deploying the project is very simple download it and run the npm command to inst
 
 ## The Backend 
 
+### login 
+
+the backend is able to hanlde login and routing using state in the front-end and knox in the backend for database trnasaction between node and postgersql
+
 The Backend does not need to be deploy is already running on heroku so is very easy for you to get the project running is you need to know how the backend was build 
 here is a link to the server side code that was use for this project [Facerecognition Server Code](https://github.com/fernandoapeguero/smart-brain-server)
 
