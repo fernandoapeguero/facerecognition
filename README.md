@@ -1,3 +1,18 @@
+# Introduction 
+
+The facerecognition app is a Full-Stack app created with Javascrit, React, nodejs, Express, Postgresql.
+
+The app only need a url of a picture and it will recognize a face in the picture and show a blu square in aroudn it using machine learning provided by the clarify api.
+
+## Started Guide 
+
+Deploying the project is very simple download it and run the npm command to install all the dependecies.
+
+```
+  npm install
+```
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
