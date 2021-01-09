@@ -12,6 +12,11 @@ Deploying the project is very simple download it and run the npm command to inst
   npm install
 ```
 
+## The Backend 
+
+The Backend does not need to be deploy is already running on heroku so is very easy for you to get the project running is you need to know how the backend was build 
+here is a link to the server side code that was use for this project [Facerecognition Server Code](https://github.com/fernandoapeguero/smart-brain-server)
+
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
