@@ -2,7 +2,7 @@
 
 The facerecognition app is a Full-Stack app created with Javascrit, React, nodejs, Express, Postgresql.
 
-The app only need a url of a picture and it will recognize a face in the picture and show a blu square in aroudn it using machine learning provided by the clarify api.
+The app only need a url of a picture and it will recognize a face in the picture and show a blu square in around it using machine learning provided by the clarify api.
 
 ## Started Guide 
 
